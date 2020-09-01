@@ -10,4 +10,6 @@ In order to sort the recipe titles alphabetically or reverse alphabetically, use
 
 If you would like to find recipes that have x number of ingredients or fewer, use filter with an integer: http://recipe-finder-lx.herokuapp.com/searches?search_text=gouda&filter=7
 
+You can also use sort and filter together.
+
 Each recipe lists the title and ingredients, but you will have to go to the listed link in order to find the instructions for making the actual recipe. I hope you find something delicious to make!
