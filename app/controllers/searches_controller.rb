@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
       @search.get_recipes
       status = "new search"
       response = compile_response(status)
-      render json: response
+      render json: JSON.pretty_generate(JSON.parse(response.to_json))
     end
   end
 
@@ -26,7 +26,7 @@ class SearchesController < ApplicationController
     @search = Search.find_by(search_text: params[:search_text])
     status = "This term has been previously searched"
     response = compile_response(status)
-    render json: response
+    render json: JSON.pretty_generate(JSON.parse(response.to_json))
   end
 
   private
@@ -60,6 +60,7 @@ class SearchesController < ApplicationController
     {
       response_code: response_code,
       message: status,
+      recipe_count: recipes.length,
       recipes: recipes
     }
   end
