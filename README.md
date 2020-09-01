@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My app is located at http://recipe-finder-lx.herokuapp.com/.
 
-Things you may want to cover:
+You can find all searches at http://recipe-finder-lx.herokuapp.com/searches.
 
-* Ruby version
+In order to query any ingredient, use "search_text" as so: http://recipe-finder-lx.herokuapp.com/searches?search_text=chocolate. This will bring up 50 results. If you revisit this page you will see these results again with a different status code/message.
 
-* System dependencies
+In order to sort the recipe titles alphabetically or reverse alphabetically, use sort=asc or sort=desc: http://recipe-finder-lx.herokuapp.com/searches?search_text=habanero&sort=desc
 
-* Configuration
+If you would like to find recipes that have x number of ingredients or fewer, use filter with an integer: http://recipe-finder-lx.herokuapp.com/searches?search_text=gouda&filter=7
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Each recipe lists the title and ingredients, but you will have to go to the listed link in order to find the instructions for making the actual recipe. I hope you find something delicious to make!
