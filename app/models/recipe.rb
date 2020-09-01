@@ -15,5 +15,4 @@ class Recipe < ApplicationRecord
   def self.filter_ingredients(recipes, limit)
     recipes.filter { |r| r[:ingredient_count] <= limit.to_i }
   end
-
 end
