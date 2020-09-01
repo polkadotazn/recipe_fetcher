@@ -13,3 +13,5 @@ If you would like to find recipes that have x number of ingredients or fewer, us
 You can also use sort and filter together.
 
 Each recipe lists the title and ingredients, but you will have to go to the listed link in order to find the instructions for making the actual recipe. I hope you find something delicious to make!
+
+Shout out to www.recipepuppy.com for this awesome api! Thank you.
