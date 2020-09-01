@@ -12,7 +12,8 @@ class SearchesController < ApplicationController
     @search = Search.new(search_params)
     if @search.save
       @search.get_recipes
-      render json: @search
+      @recipes = Recipe.check_for_modifiers(@search.recipes, params)
+      render json: @recipes
     end
   end
 
