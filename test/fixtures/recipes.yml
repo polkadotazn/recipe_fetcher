@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  ingredient_count: 1
+  link: MyText
+  search_id: 1
+
+two:
+  title: MyText
+  ingredient_count: 1
+  link: MyText
+  search_id: 1
