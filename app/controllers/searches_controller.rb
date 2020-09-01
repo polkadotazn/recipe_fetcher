@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
       @search.get_recipes
       status = "new search"
       response = compile_response(status)
-      render json: response.to_json
+      render json: response
     end
   end
 
@@ -26,22 +26,37 @@ class SearchesController < ApplicationController
     @search = Search.find_by(search_text: params[:search_text])
     status = "This term has been previously searched"
     response = compile_response(status)
-    render json: response.to_json
+    render json: response
   end
 
   private
 
   def get_search_recipes
     if @search[:recipe_count] > 0
-      Recipe.check_for_modifiers(@search.recipes, params)
+      recipes = Recipe.check_for_modifiers(@search.recipes, params)
+      if recipes[0] == "Invalid"
+        ["error", recipes.join(' ')]
+      else
+        recipes
+      end
     else
-      {"recipes" => 0, "search_text": @search[:search_text]}.to_json
+      []
     end
   end
 
   def compile_response(status)
     response_code = status == "new search" ? 201 : 200
     recipes = get_search_recipes
+
+    if recipes.empty?
+      response_code = 204
+      status = "search_text: #{params[:search_text]}; no results"
+    elsif recipes[0] == "error"
+      response_code = 422
+      status = "#{recipes[1]}"
+      recipes = []
+    end
+
     {
       response_code: response_code,
       message: status,
